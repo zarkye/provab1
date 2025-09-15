@@ -23,5 +23,31 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 19.2,
         fontWeight: 400
+    },
+    inputWrapper: {
+        width: "100%",
+        height: 51,
+        marginTop: 25,
+        flexDirection: "row",
+    },
+    textInput: {
+        width: 315,
+        backgroundColor: "#F2F2F2",
+        borderWidth: 1,
+        borderColor: "#808080",
+        padding: 16,
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5, 
+    },
+    addButton: {
+        backgroundColor: "#31C667",
+        width: 51,
+        height: 51,
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 5,
+        justifyContent: "center",
+        alignItems: "center",
+        color: "#fff"
+
     }
 })
