@@ -23,14 +23,13 @@ export default function Product(props: Props){
 
 const styles = StyleSheet.create({
     container: {
-        width: 345,
-        height: 44,
+        flex: 1,
         flexDirection: "row",
         marginBottom: 8,
         
     },
     productText: {
-        width: 301,
+        width: 322,
         backgroundColor: "#F2F2F2",
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,

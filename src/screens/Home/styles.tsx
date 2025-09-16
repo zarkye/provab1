@@ -59,6 +59,20 @@ export const styles = StyleSheet.create({
         marginTop: 34,
     },
     list: {
-        
+        width: "100%"
+    },
+    emptyList: {
+        width: "100%",
+        height: 579,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    emptyListText: {
+        textAlign: "center",
+        fontSize: 16,
+        fontWeight: 400,
+        lineHeight: 19.2,
+        color: "#F2F2F2"
+
     }
 })

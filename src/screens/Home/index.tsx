@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { styles } from './styles'
-import {View, FlatList, Text, TextInput, TouchableOpacity, Alert} from 'react-native'
+import {View, FlatList, Text, TextInput, TouchableOpacity, Alert, Image} from 'react-native'
 import Product from '../components/Product';
 
-interface Produto {
+interface Tarefa {
     name: string,
 }
 
@@ -11,15 +11,37 @@ export default function Home(){
 
 
     const [newProduct, setNewProduct] = useState("")
-    const [products, setProducts] = useState<Produto[]>([])
+    const [products, setProducts] = useState<Tarefa[]>([])
+
+    function emptyList(){
+        return (
+            <View style={styles.emptyList}>
+                <Text style={styles.emptyListText}>Realizou todas as tarefas? Adicione tarefas a sua lista de pendências.</Text>
+            </View>
+        )
+    }
 
     function handleOnAdd(){
+        if(newProduct.trim() === ""){
+            return Alert.alert("Nome da tarefa inválida")
+        }else if(products.some(p => p.name === newProduct)){
+            return Alert.alert("Tarefa já Existe")
+        }
         setProducts([...products, {name: newProduct}])
+        setNewProduct("")
     }
 
     function handleOnRemove(name: string){
-        setProducts(products.filter((item) => item.name !== name))
-        setNewProduct("")
+        return Alert.alert("Remover", `Deseja remover o produto ${name}?`, [
+            {
+                text: 'Sim',
+                onPress: () => setProducts(products.filter((item) => item.name !== name))
+            },
+            {
+                text: "Não",
+            }
+        ])
+        
     }
 
     return (
@@ -38,23 +60,26 @@ export default function Home(){
                     >
                 </TextInput>
                 <TouchableOpacity style={styles.addButton} onPress={handleOnAdd}>
-                    <Text style={styles.titleText}>+</Text>
+                    <Image
+                        source={require('../../../assets/add.png')}
+                    />
                 </TouchableOpacity>
             </View>
             <Text style={styles.pendindTasksText}>
                 Tarefas Pendentes
             </Text>
-            <FlatList
+            <View>
+                <FlatList
                 data={products}
                 renderItem={({item}) => 
-                    <Product name={item.name} onRemove={() => handleOnRemove(item.name)}>
-                    </Product>
+                    <Product name={item.name} onRemove={() => handleOnRemove(item.name)}></Product>
                 }
                 keyExtractor={(item) => item.name}  
-                showsVerticalScrollIndicator={false}
+                ListEmptyComponent={emptyList}
                 scrollEnabled={products.length > 0}
-                style={styles.list}
+                showsVerticalScrollIndicator={false}
             />
+            </View>
         </View>
     );
 }
