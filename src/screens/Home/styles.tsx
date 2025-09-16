@@ -27,6 +27,8 @@ export const styles = StyleSheet.create({
     inputWrapper: {
         width: "100%",
         height: 51,
+        justifyContent: "center",
+        alignItems: "center",
         marginTop: 25,
         flexDirection: "row",
     },
@@ -48,6 +50,15 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         color: "#fff"
-
+    },
+    pendindTasksText: {
+        color: "#F2F2F2",
+        fontSize: 20,
+        fontWeight: 700,
+        lineHeight: 24,
+        marginTop: 34,
+    },
+    list: {
+        
     }
 })
