@@ -35,7 +35,9 @@ export const styles = StyleSheet.create({
     textInput: {
         width: 315,
         backgroundColor: "#F2F2F2",
-        borderWidth: 1,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderLeftWidth: 1,
         borderColor: "#808080",
         padding: 16,
         borderTopLeftRadius: 5,
@@ -59,7 +61,7 @@ export const styles = StyleSheet.create({
         marginTop: 34,
     },
     list: {
-        width: "100%"
+        marginTop: 8
     },
     emptyList: {
         width: "100%",

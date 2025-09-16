@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     },
     productText: {
         width: 322,
+        height: 44,
         backgroundColor: "#F2F2F2",
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,

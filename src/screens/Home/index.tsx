@@ -24,7 +24,7 @@ export default function Home(){
     function handleOnAdd(){
         if(newProduct.trim() === ""){
             return Alert.alert("Nome da tarefa inválida")
-        }else if(products.some(p => p.name === newProduct)){
+        }else if(products.some(t => t.name === newProduct)){
             return Alert.alert("Tarefa já Existe")
         }
         setProducts([...products, {name: newProduct}])
@@ -32,10 +32,10 @@ export default function Home(){
     }
 
     function handleOnRemove(name: string){
-        return Alert.alert("Remover", `Deseja remover o produto ${name}?`, [
+        return Alert.alert("Remover", `Deseja remover a tarefa ${name}?`, [
             {
                 text: 'Sim',
-                onPress: () => setProducts(products.filter((item) => item.name !== name))
+                onPress: () => setProducts(products.filter((task) => task.name !== name))
             },
             {
                 text: "Não",
@@ -68,11 +68,13 @@ export default function Home(){
             <Text style={styles.pendindTasksText}>
                 Tarefas Pendentes
             </Text>
-            <View>
+            <View style={styles.list}>
                 <FlatList
                 data={products}
                 renderItem={({item}) => 
-                    <Product name={item.name} onRemove={() => handleOnRemove(item.name)}></Product>
+                    <Product name={item.name} onRemove={() => handleOnRemove(item.name)}>
+
+                    </Product>
                 }
                 keyExtractor={(item) => item.name}  
                 ListEmptyComponent={emptyList}
