@@ -34,11 +34,11 @@ export default function Home(){
     function handleOnRemove(name: string){
         return Alert.alert("Remover", `Deseja remover a tarefa ${name}?`, [
             {
-                text: 'Sim',
-                onPress: () => setProducts(products.filter((task) => task.name !== name))
+                text: 'Não',
             },
             {
-                text: "Não",
+                text: "Sim",
+                onPress: () => setProducts(products.filter((task) => task.name !== name))
             }
         ])
         
